@@ -1,7 +1,28 @@
-<h1><%= current_worker.email %>'s claimed jobs:</h1>
+<h1 class="banner"><%= current_worker.email %>'s claimed jobs:</h1>
 
 <ul>
 <% current_worker.jobs.each do |job| %>
-<li><%= link_to job.title, job_path(job) %></li>
+<div class="well">
+<div class="row">
+  <div class="col-md-4">
+  <h2><%= link_to job.title, job_path(job) %></h2>
+  </div>
+  <div class="col-md-5">
+    <% if job.is_active === true %>
+    <h3>Active Satus: currently active.</h3>
+    <% else %>
+    <h3>Active Satus: currently inactive.</h3>
+    <% end %>
+  </div>
+  <div class="col-md-3">
+    <% if job.completed === true %>
+    <h3>The Job is done!</h3>
+    <% else %>
+    <h3>The Job needs to be completed.</h3>
+    <% end %>
+  </div>
+  </div>
+  <%= link_to "Edit details", edit_job_path(job.id), remote: true, id: "change_job_status" %>
+</div>
 <% end %>
 </ul>

@@ -30,14 +30,22 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     if current_worker
-      if @job.update(pending: true, worker_id: current_worker.id)
+      if @job.pending === true
+        if @job.update(job_params)
+          flash[:notice] = "You have updated the Job"
+          if current_page?(controller: "workers")
+          redirect_to job_path(@job)
+        end
+      else
+        if @job.update(pending: true, worker_id: current_worker.id)
         flash[:notice] = "You've successfully claimed this job."
         respond_to do |format|
           format.html {redirect_to job_path(@job)}
         end
-      else
-        render :show
-        flash[:notice] = "Something went wrong!"
+        else
+          render :show
+          flash[:notice] = "Something went wrong!"
+        end
       end
     else
       # We need to streamline this process better in the future! - Mr. Fix-It.
@@ -49,7 +57,7 @@ class JobsController < ApplicationController
 private
 
   def job_params
-    params.require(:job).permit(:title, :description)
+    params.require(:job).permit(:title, :description, :is_active, :completed, :is_pending )
   end
 
 end

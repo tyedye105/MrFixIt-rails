@@ -2,13 +2,13 @@
 <h2>Need to modify the details of the job?</h2>
 <% elsif worker_signed_in? %>
 <h3>Update status of the job:</h3>
-<%= form_for @job do |f| %>
+<%= form_for @job, remote: true do |f| %>
 <div class="form-group">
-  <%= f.label :is_active, "Acitively being worked on:"  %>
+  <%= f.label :is_active, "Acitively being worked on:"%>
   <%= f.check_box :is_active%>
 </div>
 <div class="form-group">
-  <%= f.label :completed, "Acitively being worked on:"  %>
+  <%= f.label :completed, "Completed?"%>
   <%= f.check_box :completed%>
 </div>
 <%= f.submit %>
