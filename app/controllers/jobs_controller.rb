@@ -33,8 +33,9 @@ class JobsController < ApplicationController
       if @job.pending === true
         if @job.update(job_params)
           flash[:notice] = "You have updated the Job"
-          if current_page?(controller: "workers")
-          redirect_to job_path(@job)
+          respond_to do |format|
+            format.html {redirect_to job_path(@job)}
+          end
         end
       else
         if @job.update(pending: true, worker_id: current_worker.id)
