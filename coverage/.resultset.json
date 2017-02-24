@@ -1,11 +1,12 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Guest/Desktop/MrFixIt-rails/spec/models/user_spec.rb": [
+      "/Users/Guest/Desktop/MrFixIt-rails/spec/models/job_spec.rb": [
         1,
         null,
         1,
-        1,
+        2,
+        2,
         null
       ],
       "/Users/Guest/Desktop/MrFixIt-rails/spec/rails_helper.rb": [
@@ -50,8 +51,8 @@
         null,
         null,
         1,
-        0,
-        0,
+        2,
+        2,
         null,
         null,
         null,
@@ -623,6 +624,7 @@
         null,
         1,
         0,
+        0,
         null,
         null,
         1,
@@ -640,6 +642,8 @@
         0,
         0,
         0,
+        0,
+        null,
         null,
         0,
         0,
@@ -702,6 +706,26 @@
       "/Users/Guest/Desktop/MrFixIt-rails/app/models/job.rb": [
         1,
         1,
+        1,
+        null
+      ],
+      "/Users/Guest/Desktop/MrFixIt-rails/spec/factories.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/Guest/Desktop/MrFixIt-rails/spec/models/user_spec.rb": [
+        1,
+        null,
+        1,
+        null,
         null
       ],
       "/Users/Guest/Desktop/MrFixIt-rails/spec/models/worker_spec.rb": [
@@ -712,6 +736,6 @@
         null
       ]
     },
-    "timestamp": 1487954043
+    "timestamp": 1487957022
   }
 }

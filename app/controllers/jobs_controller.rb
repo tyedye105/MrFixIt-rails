@@ -10,6 +10,7 @@ class JobsController < ApplicationController
   end
 
   def show
+    @worker = Worker.all
     @job = Job.find(params[:id])
   end
 
@@ -26,8 +27,10 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     if current_worker
       if @job.update(pending: true, worker_id: current_worker.id)
-        redirect_to worker_path(current_worker)
-        flash[:notice] = "You've successfully claimed this job."
+        respond_to do |format|
+          format.html {redirect_to worker_path(current_worker)}
+          format.js { flash[:notice] = "You've successfully claimed this job." }
+        end
       else
         render :show
         flash[:notice] = "Something went wrong!"
