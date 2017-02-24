@@ -1,6 +1,8 @@
 <h1> <%= @job.title %> </h1>
-
 <h3><%= @job.description %></h3>
+<% if user_signed_in? %>
+<%= link_to "Edit details", edit_job_path(@job.id), remote: true %>
+<% end %>
 <div id="job_status">
   <% if @job.pending %>
     <p>Someone has already claimed this job; it's currently pending.</p>
@@ -11,5 +13,10 @@
     <%= link_to "click here to claim it now", job_path(@job), :method => "patch", remote: true %>
     <% end %>
   </div>
-
+  <% if current_worker.id === @job.worker_id %>
+  <div id="woker_menu">
+  <h1>Job Management</h1>
+<%= link_to "Edit details", edit_job_path(@job.id), remote: true, id: "change_job_status" %>
+  <% end %>
+</div>
 </div>
