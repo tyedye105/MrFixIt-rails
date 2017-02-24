@@ -17,9 +17,11 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     if @job.save
+      flash[:notice] = "You have posted a job!"
       redirect_to jobs_path
     else
-      render :new
+      redirect_to new_job_path
+      flash[:alert] = "text fields can't be blank."
     end
   end
 

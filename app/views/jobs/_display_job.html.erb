@@ -1,6 +1,16 @@
-<h1> <%= @job.title %> </h1>
-<h3><%= @job.description %></h3>
-<h3> <%= @job.worker_id %> </h3>
-<h3> Pending <%= @job.pending %></h3>
-<h3> Active <%= @job.is_active %> </h3>
-<h3> Completed <%= @job.completed %> </h3>
+<h1><%= @job.title %> </h1>
+<h3>Job Description:</h3>
+  <p><%= @job.description%> </p>
+<% if @job.pending %>
+<h3>Job is Pending</h3>
+<% end %>
+<% if @job.is_active %>
+<h3>Job is currently underway</h3>
+<% else %>
+<h3>Job has not yet been started</h3>
+<% end %>
+<% if @job.completed %>
+<h3>Job is completed!</h3>
+<% else %>
+<h3>Job is incomplete</h3>
+<% end %>
