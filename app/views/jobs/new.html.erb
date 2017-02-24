@@ -1,9 +1,12 @@
 <h1>Post your Job</h1>
-
+<% if user_signed_in? || worker_signed_in? %>
 <%= form_for @job do |f| %>
   <%= f.label :title %>
 <%= f.text_field :title %>
   <%= f.label :description %>
   <%= f.text_field :description %>
   <%= f.submit  %>
+  <% end %>
+  <% else %>
+  <h3>Please create an account to post jobs!</h3>
 <% end %>
