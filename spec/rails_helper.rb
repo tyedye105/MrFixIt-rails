@@ -5,6 +5,7 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+include Warden::Test::Helpers
 require 'capybara/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -38,11 +39,17 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :truncation
   end
 
+
   config.around(:each) do |example|
     DatabaseCleaner.cleaning do
       example.run
     end
   end
+
+  config.after :each do
+    Warden.test_reset!
+  end
+
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
