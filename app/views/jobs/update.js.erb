@@ -1,2 +1,2 @@
 $('#claim_job').hide();
-$('#')
+$('#job_status').append("This job has been claimed! Send worker inquires to : <%= Worker.find(@job.worker_id).email   %>")

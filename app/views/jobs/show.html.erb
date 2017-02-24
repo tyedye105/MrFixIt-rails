@@ -4,10 +4,12 @@
 <div id="job_status">
   <% if @job.pending %>
     <p>Someone has already claimed this job; it's currently pending.</p>
-    <p> This job has been claimed by the worker with the email <%= Worker.find(@job.worker_id).email %></p>
+    <p> Send all inquires to :<%= Worker.find(@job.worker_id).email %></p>
   <% else %>
-  <p>No one has claimed this job!</p>
-  <%= link_to "click here to claim it now", job_path(@job), :method => "patch", :id => "claim_job", remote: true %>
-  <% end %>
+  <div id="claim_job">
+    <p>No one has claimed this job!</p>
+    <%= link_to "click here to claim it now", job_path(@job), :method => "patch", remote: true %>
+    <% end %>
+  </div>
 
 </div>

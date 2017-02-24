@@ -7,6 +7,15 @@
         1,
         2,
         2,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
         null
       ],
       "/Users/Guest/Desktop/MrFixIt-rails/spec/rails_helper.rb": [
@@ -51,8 +60,8 @@
         null,
         null,
         1,
-        2,
-        2,
+        3,
+        3,
         null,
         null,
         null,
@@ -736,6 +745,6 @@
         null
       ]
     },
-    "timestamp": 1487957022
+    "timestamp": 1487957382
   }
 }

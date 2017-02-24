@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :worker do
     email "build1t@gmail.com"
-    password "asdf"
+    password "asdfas"
   end
   factory :job do
     title "Finagle the Buffalo Door"
