@@ -29,5 +29,16 @@ describe 'the claim job path' do
     click_button 'Update Job'
     expect(page).to have_content "Job is currently underway"
   end
+  it "will allow to mark a job as completed", js:true do
+    worker = FactoryGirl.create(:worker)
+    job = FactoryGirl.create(:job)
+    login_as(worker, :scope => :worker)
+    visit job_path(job)
+    click_link "click here to claim it now"
+    click_link 'Update the State of the Job'
+    check('Completed?')
+    click_button 'Update Job'
+    expect(page).to have_content "Job is completed!"
+  end
 
 end
