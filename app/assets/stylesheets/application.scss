@@ -16,7 +16,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+$wellcolor: #c3c3c3;
+
+html {
+  height: 100%;
+}
+
 body {
+  background-size: cover;
+  background-image: image-url("background.jpg");
   margin: 0;
   padding: 0;
   margin-top: -10px;
@@ -67,4 +76,20 @@ h1.page-title {
 
 .banner{
   text-align: center;
+}
+
+.well {
+  background: $wellcolor;
+  border: #a9a2a2;
+}
+
+.navbar-default {
+  background: black;
+}
+
+img {
+  max-width: 75%;
+  max-height: 75%;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

@@ -1,9 +1,13 @@
-<h1>Jobs</h1>
+<h1 class="jumbotron banner">Jobs</h1>
 
+<h2>Welcome to the Job board!</h2>
+  <p> This were independant contractors of all skills come to look at the jobs post on Mr.Fix-It!</p>
+  <p> If you are looking to post jobs to the board, check out the Add Your Job link in the navbar above.</p>
+  <h6> <%= link_to "or just click this link!", new_job_path %> </h6>
 <%if @jobs.any? %>
 <ul>
   <% @jobs.each do |job| %>
-  <li><%= link_to job.title, job_path(job) %></li>
+  <h3><%= link_to job.title, job_path(job) %></h3>
   <% end %>
 </ul>
 <% else %>

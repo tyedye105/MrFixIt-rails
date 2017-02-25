@@ -30,9 +30,8 @@ _The following functionality is present in our application:_
 * Basic users have the option to sign up for a Worker account, which allows them to claim and complete jobs.
 * A worker can claim a job, and see it in their "Worker Dashboard"
 
-### Still Needed
 
-_The following must still be implemented:_
+_The following was added 2/24/2017:_
 
 * Workers must be able to claim a job **via an AJAX action**.
 * A worker must be able to mark which jobs they're actively working on **using AJAX**.
